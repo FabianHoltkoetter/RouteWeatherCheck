@@ -1,0 +1,138 @@
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+	
+</script>
+<script>
+	$(document).ready(function() {
+		// Liste von einträgen
+		var $tableEntrys = $("#tableEntry1, #tableEntry2, #tableEntry3");
+		var $inputFields = $("#waypoint1, #waypoint2, #waypoint3");
+		$tableEntrys.hide();
+		//When Checkbox is checked waypoints are shown
+		$('#checkbox1').click(function() {
+			if ($(this).is(':checked')) {
+				$("#tableEntry1").show(1500);
+				$("#origin").focus();
+			} else {
+				$tableEntrys.hide("medium");
+				$inputFields.val("");
+			}
+		});
+		//Replace special characters
+		$("#origin").focusout(function() {
+        var text = $(this).val();
+	        $(this).val(
+	            text.replace("ä", "ae")
+	                .replace("ö", "oe")
+	                .replace("ü", "ue")
+	        );
+    	});
+		$("#waypoint1").focusout(function() {
+	        var text = $(this).val();
+		        $(this).val(
+		            text.replace("ä", "ae")
+		                .replace("ö", "oe")
+		                .replace("ü", "ue")
+		        );
+	    	});
+		$("#waypoint2").focusout(function() {
+	        var text = $(this).val();
+		        $(this).val(
+		            text.replace("ä", "ae")
+		                .replace("ö", "oe")
+		                .replace("ü", "ue")
+		        );
+	    	});
+		$("#waypoint3").focusout(function() {
+	        var text = $(this).val();
+		        $(this).val(
+		            text.replace("ä", "ae")
+		                .replace("ö", "oe")
+		                .replace("ü", "ue")
+		        );
+	    	});
+		$("#destination").focusout(function() {
+	        var text = $(this).val();
+		        $(this).val(
+		            text.replace("ä", "ae")
+		                .replace("ö", "oe")
+		                .replace("ü", "ue")
+		        );
+	    	});
+		//Show next Stopover-Fields if text is entered.
+		$("#waypoint1").on("keypress", function() {
+			$("#tableEntry2").show(1500);
+		});
+		$("#waypoint2").on("keypress", function() {
+			$("#tableEntry3").show(1500);
+		});
+		//Activate Button when form is valid
+		$("#form").on("keypress", function() {
+			validate();
+		});
+		//Display loading-page
+		$("#button").click(function() {
+			$("#formDIV").hide("medium");
+			$("#loadingDIV").slideDown();
+		})
+		//Validate Form
+		function validate(){
+		    if ($("#origin").val().length   >   0   &&
+		        $("#destination").val().length  >   0) {
+		        $("#button").prop("disabled", false);
+		    }
+		    else {
+		        $("#button").prop("disabled", true);
+		    }
+		}
+	});
+</script>
+<div class="articles">
+	<div id="formDIV">
+		<h2>Start Check</h2>
+		Activate waypoints? <input type="checkbox" id="checkbox1" /> <br />
+		<br />
+
+		<form id="form"
+			action="http://localhost:8080/RouteWeatherCheck/Weather"
+			method="Post">
+			<table>
+				<tr>
+					<td style="width: 120px">Origin:</td>
+					<td><input autofocus id="origin" name="origin" type="text" size="30" required></td>
+				</tr>
+
+				<tr id="tableEntry1" style="display: none">
+					<td>Waypoint 1:</td>
+					<td><input id="waypoint1" name="waypoint1" type="text"
+						size="30"></td>
+				</tr>
+				<tr id="tableEntry2" style="display: none">
+					<td>Waypoint 2:</td>
+					<td><input id="waypoint2" name="waypoint2" type="text"
+						size="30"></td>
+				</tr>
+				<tr id="tableEntry3" style="display: none">
+					<td>Waypoint 3:</td>
+					<td><input id="waypoint3" name="waypoint3" type="text"
+						size="30"></td>
+				</tr>
+
+				<tr>
+					<td>Destination:</td>
+					<td><input id="destination" name="destination" type="text" size="30" required></td>
+				</tr>
+			</table>
+			<br />
+			<button id="button" style="width: 330px" disabled="true">Show the Weather!</button>
+		</form>
+	</div>
+	<div id="loadingDIV" style="display: none">
+		<h2>This may take a while...</h2>
+		<img
+			src="http://www.reactiongifs.us/wp-content/uploads/2013/03/cookie_monster_waiting.gif"
+			alt="Waiting" align="middle" style="border: 5px solid #FE7F0E">
+		<br />
+		<br />
+	</div>
+</div>

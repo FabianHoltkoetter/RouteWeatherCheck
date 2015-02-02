@@ -1,0 +1,10 @@
+];
+
+		for (var i = 0, feature; feature = features[i]; i++) {
+			addMarker(feature,i);
+		}
+		map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+	}
+
+	function calcRoute() {
+		var request = {

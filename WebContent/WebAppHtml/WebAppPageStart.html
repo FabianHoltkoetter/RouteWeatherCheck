@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Weather Check</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(254,127,14,0), rgba(254,127,14,0.75), rgba(254,127,14,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(254,127,14,0), rgba(254,127,14,0.75), rgba(254,127,14,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(254,127,14,0), rgba(254,127,14,0.75), rgba(254,127,14,0)); 
+    background-image:      -o-linear-gradient(left, rgba(254,127,14,0), rgba(254,127,14,0.75), rgba(254,127,14,0)); 
+}
+
+body {
+	background: #555;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #333333;;
+}
+
+img {
+	border: none;
+}
+
+a {
+	color: #FE7F0E;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+#wrap {
+	margin: 40px auto 0 auto;
+	width: 800px;
+}
+
+#header {
+	padding-bottom: 10px;
+}
+
+#header h1 {
+	font-size: 26px;
+	font-weight: 100;
+	letter-spacing: -3px;
+	padding: 12px 0 5px 10px;
+}
+
+#header h1 a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header h1 a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header h2 {
+	color: #FE7F0E;
+	font-size: 15px;
+	font-weight: 100;
+	padding: 0 0 0 11px;
+	letter-spacing: -1px;
+	line-height: 12px;
+}
+
+#menu {
+	height: 40px;
+	line-height: 30px;
+	background: #FE7F0E;
+}
+
+#menu ul {
+	padding-left: 10px;
+	padding-top: 8px;
+	list-style-type: none;
+}
+
+#menu ul li {
+	display: block;
+	float: left;
+}
+
+#menu ul li a {
+	display: inline-block;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	color: #eee;
+	font-weight: 600;
+	padding: 0 12px;
+	text-decoration: none;
+}
+
+#menu ul li a:hover {
+	color: #fff;
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
+
+#content {
+	background: #333;
+	color: #999;
+	padding: 10px 20px;
+}
+
+.left {
+	width: 568px;
+	float: left;
+	text-align: justify;
+}
+
+.left h2 {
+	color: #FE7F0E;
+	font-size: 24px;
+	letter-spacing: -3px;
+	font-weight: 100;
+	padding: 10px 0 15px 0;
+}
+
+.right {
+	width: 150px;
+	float: right;
+	padding: 10px;
+	border-left: 1px solid #bbb;
+	font-size: 12px;
+}
+
+.right ul {
+	list-style-type: none;
+	padding: 5px 10px 10px 10px;
+}
+
+.right h2 {
+	height: 30px;
+	font-size: 12px;
+	color: #666;
+	line-height: 30px;
+}
+
+.right a {
+	text-decoration: none
+}
+
+#top {
+	background: #555 url(images/top.jpg) no-repeat;
+	padding: 5px 0;
+}
+
+#bottom {
+	background: #555 url(images/bottom.jpg) no-repeat;
+	padding: 10px 0;
+}
+
+#footer {
+	text-align: center;
+	color: #eee;
+	font-size: 11px;
+	padding: 0 0 10px 0;
+}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header">
+			<h1>
+				<a href="http://localhost:8080/RouteWeatherCheck/">Group 09</a>
+			</h1>
+			<h2>A Networking I Project</h2>
+		</div>
+
+		<div id="top"></div>
+		<div id="menu">
+			<ul>
+				<li><a href="/RouteWeatherCheck">Home</a></li>
+				<li><a
+					href="/RouteWeatherCheck/Weather">Weather
+						Check</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="left">
